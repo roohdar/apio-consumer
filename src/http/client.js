@@ -43,6 +43,7 @@ export default class HttpClient {
 	async request(method, url, headers = {}, body) {
 		if (typeof body === 'string') {
 			headers['Content-type'] = 'application/json';
+			headers['Accept'] = 'application/hal-json';
 		}
 
 		const response = await this.doFetch(url, method, headers, body);
